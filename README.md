@@ -55,7 +55,19 @@ By following or reusing this report, you agree that:
 - You are solely responsible for complying with all applicable laws in your jurisdiction.
 
 ---
+*Prepared for Security Assessment & Training Purposes*
 
+| Field | Details |
+|---|---|
+| **Pentester Name (Cybersecurity Professional)** | Rosan Shrestha |
+| **Program/Batch** | B082-Networkwalks |
+| **Date** | 27 August 2026 |
+| **Modules Completed** | W3-PM1 (password cracking with jhonny and networkwalks|
+| **Client/Target** | 1. Networkwalks (secured written permission already) <br> 2. My own local LAN Network |
+| **Permission Secured from Client?** | Yes |
+| **Phases Covered** | Phase 1: Reconnaissance & Footprinting <br> Phase 2: Scanning & Network Discovery <br> Phase 3–5: In Progress |
+
+---
 ## 🧠 Introduction to Password Cracking
 
 Password cracking is the process of recovering or guessing a password, usually from its hashed form, in order to verify its strength or regain access to protected data. Since most systems store passwords as **hashes** rather than plain text, cracking tools work by generating password guesses, hashing each one, and comparing the result against the stored hash until a match is found.
@@ -98,19 +110,18 @@ Password cracking is used both maliciously by attackers and legitimately by secu
 
 Downloaded and installed **Johnny**, the graphical front-end for John the Ripper, on the host machine. Johnny simplifies password auditing by providing a visual interface instead of requiring pure command-line operation.
 
-![alt text](johnny-install.png)
+![alt text](jhontheripper/download-jhonny.png)
 
 ---
 
 ## Step 2. Calculate the Hash of the Password-Protected File
 
-Before Johnny can attempt to crack a password, the protected file must be converted into a hash format John the Ripper understands. This was done using the appropriate `*2john` utility for the file type (e.g. `zip2john`, `pdf2john`, `office2john`), which extracts the hash and saves it to a `.txt` file.
+Before Johnny can attempt to crack a password, the protected file must be converted into a hash format John the Ripper understands. This was done using the appropriate online hashcrack utility for the file, which extracts the hash and saves it to a `.txt` file.
 
-```bash
-zip2john protected_file.zip > hash.txt
-```
 
-![alt text](hash-calculation.png)
+![alt text](jhontheripper/calculate-hash-1.png)
+![alt text](jhontheripper/calculate-hash-file-2.png)
+![alt text](jhontheripper/calculate-hash-3.png)
 
 ---
 
@@ -122,7 +133,7 @@ Opened Johnny and configured the cracking session:
 - Selected the **wordlist** to use.
 - Left default rules enabled to catch common variations (capitalization, digits, etc.).
 
-![alt text](johnny-settings.png)
+
 
 ---
 
@@ -130,7 +141,7 @@ Opened Johnny and configured the cracking session:
 
 Loaded the `hash.txt` file generated in Step 2 into Johnny using **Open Password Hash File**, then started the cracking session.
 
-![alt text](upload-hash-johnny.png)
+
 
 ---
 
@@ -138,7 +149,9 @@ Loaded the `hash.txt` file generated in Step 2 into Johnny using **Open Password
 
 Johnny worked through the wordlist, hashing each candidate and comparing it against the target hash. Once a match was found, Johnny displayed the recovered plaintext password in the results pane.
 
-![alt text](password-found-johnny.png)
+![alt text](jhontheripper/crack-password-1.png)
+![alt text](jhontheripper/crack-password-2.png)
+![alt text](jhontheripper/crack-password-file-3.png)
 
 **Result:**
 
@@ -157,7 +170,6 @@ Time taken:  [duration]
 
 The target file, secured with a password, was prepared and made ready for hash extraction.
 
-![alt text](target-file.png)
 
 ---
 
@@ -165,7 +177,8 @@ The target file, secured with a password, was prepared and made ready for hash e
 
 The password-protected file was uploaded into the **Network Walks Hash Calculator**, which processed the file and generated its corresponding hash value.
 
-![alt text](networkwalks-hash-calculator.png)
+
+![alt text](Networkwalkstools/calculate-hashof-file1.png)
 
 ---
 
@@ -173,7 +186,7 @@ The password-protected file was uploaded into the **Network Walks Hash Calculato
 
 The generated hash was copied and uploaded into the **Network Walks Password Cracker**, which tests the hash against candidate passwords until a match is found.
 
-![alt text](networkwalks-upload-hash.png)
+
 
 ---
 
@@ -181,7 +194,7 @@ The generated hash was copied and uploaded into the **Network Walks Password Cra
 
 A wordlist containing common/likely password candidates was uploaded into the cracker to run a dictionary attack against the target hash.
 
-![alt text](networkwalks-wordlist-upload.png)
+
 
 ---
 
@@ -189,17 +202,9 @@ A wordlist containing common/likely password candidates was uploaded into the cr
 
 The Network Walks Password Cracker hashed each word in the wordlist and compared it to the target hash. Once a match was found, the tool displayed the corresponding plaintext password.
 
-![alt text](networkwalks-password-cracked.png)
 
-**Result:**
-
-```text
-Hash uploaded:  [hash value]
-Wordlist used:  [wordlist name]
-Password:       [recovered password]
-```
-
----
+![alt text](Networkwalkstools/crack-password-file1.png)
+![alt text](Networkwalkstools/password-cracking-using-the-rockyou.png)
 
 # ✅ Verification
 
