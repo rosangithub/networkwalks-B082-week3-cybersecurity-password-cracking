@@ -243,6 +243,8 @@ This project is intended strictly for **educational purposes** and was performed
 
 - **John the Ripper:** https://www.openwall.com/john/
 - **Johnny (GUI):** https://openwall.info/wiki/john/johnny
+- **Network walks Hash calculator**https://networkwalks.com/hash-calculator/
+- **Network walks password cracker**https://networkwalks.com/password-cracker/
 - **Network Walks:** https://networkwalks.com/
 
 ---
